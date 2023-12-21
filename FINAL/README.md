@@ -35,7 +35,7 @@ Preprocessing steps included:
 - Handling missing values.
 - Encoding categorical variables such as sex, cp, and restecg.
 - Normalizing numerical features for certain models.
-- 
+
 - **Removing Columns with High Missing Values**: Columns 'slope', 'ca', and 'thal' were dropped due to a high proportion of missing values. Keeping these columns with substantial missing data could have introduced bias or inaccuracies in the models.
 
 - **Imputing Missing Values**: For columns with fewer missing values ('trestbps', 'chol', 'thalch', 'oldpeak'), missing data was imputed using the median value of each column. Median imputation was chosen as it is less sensitive to outliers than mean imputation, thus preserving the integrity of the dataset more effectively.
