@@ -28,10 +28,29 @@ This project is focused on predicting the presence of heart disease in patients 
 - **num**: the predicted attribute
 
 ## Preprocessing
+
+The preprocessing stage is crucial in preparing the dataset for effective machine learning model training. In this project, several preprocessing steps were undertaken:
+  
 Preprocessing steps included:
 - Handling missing values.
 - Encoding categorical variables such as sex, cp, and restecg.
 - Normalizing numerical features for certain models.
+- 
+- **Removing Columns with High Missing Values**: Columns 'slope', 'ca', and 'thal' were dropped due to a high proportion of missing values. Keeping these columns with substantial missing data could have introduced bias or inaccuracies in the models.
+
+- **Imputing Missing Values**: For columns with fewer missing values ('trestbps', 'chol', 'thalch', 'oldpeak'), missing data was imputed using the median value of each column. Median imputation was chosen as it is less sensitive to outliers than mean imputation, thus preserving the integrity of the dataset more effectively.
+
+- **Encoding Categorical Variables**: 
+  - The 'sex', 'fbs', and 'exang' columns were binary categorical variables and were encoded as 1 and 0. This conversion was necessary to transform these categorical values into a format that can be efficiently processed by machine learning algorithms.
+  - The 'cp', 'restecg', and 'dataset' columns were one-hot encoded, creating a separate binary column for each category. One-hot encoding is a standard approach for handling nominal categorical data, as it allows models to better interpret and use the information without an implied order.
+
+- **Dropping the 'id' Column**: The 'id' column was removed as it is a unique identifier for each patient and does not contribute to the predictive power of the models.
+
+- **Splitting the Dataset**: The dataset was split into training and testing sets, with 80% of the data used for training and 20% for testing. This split ensures that the model can be trained on a large subset of the data while also being validated on an unseen subset, providing insights into its generalization capability.
+
+- **Re-Imputing NaN Values in Training and Test Sets**: Any NaN values that emerged during the train-test split were imputed using the same median strategy, ensuring consistency and data integrity.
+
+Each of these preprocessing steps was critical to ensure the data was clean, relevant, and structured in a way that maximizes the performance and accuracy of the machine learning models.
 
 ## Data Visualization
 
